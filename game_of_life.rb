@@ -61,6 +61,8 @@ class Board
    
   #adapted from mr. Satoru Takabayashi's progress bar hosted on github
   def get_window_width_and_heiht
+    #detect terminal size on a mac
+    #`stty size`.scan(/\d+/).map { |s| s.to_i }.reverse
     tiocgwinsz = 0x5413
     data = [0, 0, 0, 0].pack("SSSS")
     @out = STDERR
@@ -139,5 +141,4 @@ g.b.print_board
 g.evolve_board
 #puts g.b.inspect
 }
-
-
+ 
