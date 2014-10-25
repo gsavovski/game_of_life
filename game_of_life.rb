@@ -33,7 +33,7 @@ class Board
   end
 
   def print_board
-    screen_x, screen_y = get_window_width_and_heiht
+    screen_x, screen_y = get_window_width_and_height
     output_string = ""
     (screen_x-2).times do |i|
  #output_string << ((i  == 0 ) ? j.to_s : "X")
@@ -61,8 +61,8 @@ class Board
   end
 
   #Get terminal height and width (os x, ubuntu)
-  def get_window_width_and_heiht
-    `stty size`.scan(/\d+/).map { |s| s.to_i }.reverse
+  def get_window_width_and_height
+    `stty size`.scan(/\d+/).map { |s| s.to_i }
   end
 
 end
@@ -76,11 +76,11 @@ class Game
     #setup.new("acron", [[3,5],[5,6],[3,6],[4,8],[5,9],[5,10],[5,11]])
 
     #@b = Board.new([[3,5],[5,6],[3,6],[4,8],[5,9],[5,10],[5,11]]) #acron
-    @b = Board.new([[5,5],[5,6],[4,6],[6,6], [4,7]]) #F-pentomino
+    # @b = Board.new([[5,5],[5,6],[4,6],[6,6], [4,7]]) #F-pentomino
     #@b = Board.new([[5,5],[5,6],[4,5],[4,6], [4,10],[4,12],[6,11],[5,11]]) #die hard
     #@b = Board.new([[5,5],[5,6],[5,7],[5,8],[4,8],[3,8],[2,7],[4,4],[2,4]]) #lightweight spaceship
     #@b = Board.new([[3,3],[3,4],[3,5],[2,5],[1,4]]) #Glider
-    #@b = Board.new([[3,3],[3,4],[3,5]]) #blinker
+    @b = Board.new([[3,3],[3,4],[3,5]]) #blinker
   end
 
   def play(times=100)
